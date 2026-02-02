@@ -94,7 +94,7 @@ const PublicLayout: React.FC<{ posts: Post[], lang: Language, toggleLang: () => 
               <div className="bg-orange-600 p-1.5 rounded-lg">
                 <Zap className="text-white w-6 h-6" />
               </div>
-              <span className="text-2xl font-bold text-gray-900 tracking-tight">समाचार<span className="text-orange-600">AI</span></span>
+              <span className="text-2xl font-bold text-gray-900 tracking-tight">गज़ब<span className="text-orange-600">News</span></span>
             </Link>
 
             <nav className="hidden md:flex space-x-8 text-sm font-medium">
@@ -162,7 +162,7 @@ const PublicLayout: React.FC<{ posts: Post[], lang: Language, toggleLang: () => 
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-6">
               <Zap className="text-orange-500 w-8 h-8" />
-              <span className="text-2xl font-bold tracking-tight">समाचार<span className="text-orange-500">AI</span></span>
+              <span className="text-2xl font-bold tracking-tight">गज़ब<span className="text-orange-500">News</span></span>
             </Link>
             <p className="text-gray-400 max-w-sm">
               भारत का अग्रणी न्यूज़ और ब्लॉगिंग प्लेटफॉर्म, जो एआई की शक्ति से संचालित है। हम आपको तकनीक और स्थानीय समाचारों का बेहतरीन मिश्रण प्रदान करते हैं।
@@ -179,14 +179,14 @@ const PublicLayout: React.FC<{ posts: Post[], lang: Language, toggleLang: () => 
           </div>
           <div>
             <h4 className="font-bold mb-4">संपर्क करें</h4>
-            <p className="text-gray-400 text-sm">info@samachar-ai.in</p>
+            <p className="text-gray-400 text-sm">info@gajab-news.in</p>
             <div className="flex gap-4 mt-4">
               <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-600 transition-colors cursor-pointer"><Share2 className="w-4 h-4" /></div>
             </div>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-xs">
-          © 2024 Samachar AI. सभी अधिकार सुरक्षित।
+          © 2024 GajabNews. सभी अधिकार सुरक्षित।
         </div>
       </footer>
     </>
