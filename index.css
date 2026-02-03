@@ -2,9 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+@layer base {
+  body {
+    @apply font-hind leading-relaxed;
   }
+  h1, h2, h3, h4 {
+    @apply font-poppins font-bold tracking-tight;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+.hindi-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.admin-sidebar-active {
+  @apply bg-orange-600 text-white shadow-lg shadow-orange-200;
 }
