@@ -1,8 +1,16 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const getAi = () => {
+  const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error("Gemini API Key is missing. Please set GEMINI_API_KEY in your environment variables.");
+    throw new Error("An API Key must be set to use Gemini features.");
+  }
+  return new GoogleGenAI({ apiKey });
+};
 
 export async function generateHindiArticle(topic: string) {
+  const ai = getAi();
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-preview',
     contents: `Write a comprehensive, SEO-friendly Hindi blog post about: ${topic}. 
@@ -31,6 +39,7 @@ export async function generateHindiArticle(topic: string) {
 }
 
 export async function generateHindiFromSource(sourceTitle: string, sourceSnippet: string) {
+  const ai = getAi();
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-preview',
     contents: `Transform the following news source into a unique, high-quality, and SEO-optimized Hindi blog post.
@@ -86,6 +95,7 @@ export async function generateHindiFromSource(sourceTitle: string, sourceSnippet
 }
 
 export async function generateHindiCover(prompt: string) {
+  const ai = getAi();
   const response = await ai.models.generateContent({
     model: 'gemini-2.5-flash-image',
     contents: {
@@ -110,6 +120,7 @@ export async function generateHindiCover(prompt: string) {
 }
 
 export async function generateLegalDoc(type: 'Privacy Policy' | 'Terms & Conditions' | 'Disclaimer', lang: 'hi' | 'en') {
+  const ai = getAi();
   const prompt = lang === 'hi' 
     ? `Create a comprehensive, professional, and GDPR-compliant ${type} for 'GajabNews' (gajabnews.in). Use clear, layered Hindi. Include sections on data collection, user rights, and legal justification.`
     : `Create a comprehensive, professional, and GDPR-compliant ${type} for 'GajabNews' (gajabnews.in). Use clear, layered English. Include sections on data collection, user rights, and legal justification.`;
@@ -126,6 +137,7 @@ export async function generateLegalDoc(type: 'Privacy Policy' | 'Terms & Conditi
 }
 
 export async function analyzeComment(content: string) {
+  const ai = getAi();
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
     contents: `Analyze the following comment for moderation.
